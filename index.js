@@ -21,7 +21,7 @@ function App() {
       }
 
       // Fetch without 'no-cors' mode
-      const res = await fetch('https://bfhl-frontend-505.vercel.app/bfhl', { // Replace with your backend URL
+      const res = await fetch('https://bfhl-backend-psi-three.vercel.app', { // Replace with your backend URL
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
