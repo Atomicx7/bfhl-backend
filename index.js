@@ -20,6 +20,7 @@ function App() {
         throw new Error('Invalid JSON format');
       }
 
+      // Attempting fetch with CORS mode 'no-cors' (not recommended for real response data)
       const res = await fetch('https://bfhl-backend-psi-three.vercel.app/bfhl', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -28,14 +29,16 @@ function App() {
           email: email,
           roll_number: rollNumber,
           data: parsedData.data
-        })
+        }),
+        mode: 'no-cors', // Using 'no-cors' mode (not ideal for API response)
       });
 
+      // Check if the response is successful or not
       if (!res.ok) {
         throw new Error('API request failed');
       }
 
-      const data = await res.json();
+      const data = await res.json(); // This won't work properly if using 'no-cors'
       setResponse(data);
       setError('');
     } catch (err) {
