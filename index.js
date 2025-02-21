@@ -20,8 +20,8 @@ function App() {
         throw new Error('Invalid JSON format');
       }
 
-      // Attempting fetch with CORS mode 'no-cors' (not recommended for real response data)
-      const res = await fetch('https://bfhl-frontend-505.vercel.app/bfhl', {
+      // Fetch without 'no-cors' mode
+      const res = await fetch('https://bfhl-backend-psi-three.vercel.app/bfhl', { // Replace with your backend URL
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -30,15 +30,14 @@ function App() {
           roll_number: rollNumber,
           data: parsedData.data
         }),
-        mode: 'no-cors', // Using 'no-cors' mode (not ideal for API response)
       });
 
-      // Check if the response is successful or not
+      // Check if the response is successful
       if (!res.ok) {
         throw new Error('API request failed');
       }
 
-      const data = await res.json(); // This won't work properly if using 'no-cors'
+      const data = await res.json(); // This will work if CORS is handled on the backend
       setResponse(data);
       setError('');
     } catch (err) {
