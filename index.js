@@ -20,7 +20,7 @@ function App() {
         throw new Error('Invalid JSON format');
       }
 
-      const res = await fetch('https://bfhl-frontend-505.vercel.app/bfhl', {
+      const res = await fetch('https://bfhl-backend-psi-three.vercel.app/bfhl', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
