@@ -21,7 +21,7 @@ function App() {
       }
 
       // Attempting fetch with CORS mode 'no-cors' (not recommended for real response data)
-      const res = await fetch('https://bfhl-backend-psi-three.vercel.app/bfhl', {
+      const res = await fetch('https://bfhl-frontend-505.vercel.app/bfhl', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
